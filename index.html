@@ -19,12 +19,51 @@
 
 <!--or css-->
 <link href="style.css" rel="stylesheet"/>
-    <title>Document</title>
+    <title>Tasky</title>
 </head>
 <body>
+  <!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">
+          Add New Task Title</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <div class="mb-3">
+          <label for="imageurl" class="form-label">Image Url</label>
+          <input type="url" class="form-control" id="imageUrl" aria-describedby="image url" placeholder="https://example.com/image.jpg">
+          
+        </div>
+        <div class="mb-3">
+          <label for="tasktitle" class="form-label">Task Title</label>
+          <input type="text" class="form-control" id="taskTitle" aria-describedby="task title" placeholder="Appropriate Task Title">
+          
+        </div>
+        <div class="mb-3">
+          <label for="tasktype" class="form-label">Task Type</label>
+          <input type="text" class="form-control" id="taskType" aria-describedby="task type" placeholder="Type of Task">
+          
+        </div>
+        <div class="mb-3">
+          <label for="taskdescription" class="form-label">Task Description</label>
+          <textarea rows="6" class="form-control" id="taskDescription" aria-describedby="task description" placeholder="Brief Description"></textarea>
+          
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary" onclick="saveChanges()">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
+  <!--Navbar-->
     <nav class="navbar navbar-expand-md navbar-light bg-light">
         <div class="container-fluid">
-          <a class="navbar-brand" href="#">Navbar</a>
+          <a class="navbar-brand" href="#"><p class="text-primary"><strong>Tasky</strong></p></a>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
@@ -34,7 +73,7 @@
                 <a class="nav-link active" aria-current="page" href="#">Home</a>
               </li>
             </ul>
-            <button type="button" class="btn btn-primary">
+            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
               <i class="fas fa-plus"></i> Add new
             </button>
             
@@ -54,21 +93,22 @@
         </div>
         <!--Cards-->
         <section>
-          <div class="row">
+          <div class="row task_container">
             <div class="col-md-6 col-lg-4">
-              <div class="card text-center">
-                <div class="card-header">
+              <div class="card">
+                <div class="card-header d-flex justify-content-end gap-2">
                   <button type="button" class="btn btn-outline-success"><i class="fas fa-pencil-alt"></i></button>
                   <button type="button" class="btn btn-outline-danger"><i class="fas fa-trash-alt"></i></button>
                 
                 </div>
+                <img src="https://cdn.pixabay.com/photo/2015/04/23/22/00/tree-736885__480.jpg" class="card-img-top" alt="...">
                 <div class="card-body">
                   <h5 class="card-title">Special title treatment</h5>
                   <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
                   <a href="#" class="btn btn-primary">Go somewhere</a>
                 </div>
-                <div class="card-footer text-muted">
-                  2 days ago
+                <div class="card-footer">
+                  <button type="button" class="btn btn-primary float-end">Open Task</button>
                 </div>
               </div>
             </div>
@@ -78,11 +118,9 @@
      
 
 
-
-
-
-
     <!-- JavaScript Bundle with Popper -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script>
+<!--our javascript-->
+<script src="index.js"></script>
 </body>
 </html>
