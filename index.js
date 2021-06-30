@@ -51,8 +51,8 @@ const saveChanges = () => {
     // pushing raw data into localstorage so the data will not be deleted when the "tasky" web page is refreshed.
     globalStore.push(taskData);
 
-   const updateLocalStorage = () =>
-   localStorage.setItem("tasky",JSON.stringify({hello: globalStore}));
+    localStorage.setItem("tasky",JSON.stringify({hello: globalStore}));
+   
    
 }; 
 
@@ -66,7 +66,7 @@ const deleteCard = (event) => {
   //if match found delete
 
    globalStore = globalStore.filter((cardObject) => cardObject.id !== targetID);
-   updateLocalStorage();
+   localStorage.setItem("tasky",JSON.stringify({hello: globalStore}));
 
    // CONTACT parent
 
@@ -140,6 +140,11 @@ const saveEditchanges = (event) => {
     return task;//important
   });
   
-  updateLocalStorage();
+  localStorage.setItem("tasky",JSON.stringify({hello: globalStore}));
+  taskTitle.setAttribute("contenteditable","false");
+  taskDescription.setAttribute("contenteditable","false");
+  taskType.setAttribute("contenteditable","false");
+  submitButton.innerHTML ="Open task";
+   
 };
  
